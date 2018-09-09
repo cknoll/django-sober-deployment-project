@@ -128,4 +128,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+
+# this is the target of manage.py collectstatic
+STATIC_ROOT = os.path.join(BASE_DIR, "collected_static_files")
+
+# the url which will be included in the templates like:
+# <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" type="text/css" />
 STATIC_URL = '/static/'
+
+# such requests will be mapped to the directory above by the (appropriatly configured webserver)
+
