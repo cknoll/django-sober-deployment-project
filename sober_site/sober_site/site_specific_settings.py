@@ -8,6 +8,12 @@ The variables defined here are imported to settings.py
 
 """
 
+import os
+
+
+# this is duplicated in settings.py (not DRY but a also no big deal)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '1234567890abcdefghijklmnopqrstuvwxyz1234567890abcd'
 

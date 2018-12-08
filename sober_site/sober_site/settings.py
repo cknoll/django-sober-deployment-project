@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -97,7 +99,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-# default; will be overridden by settings
+# default; will be overridden by user-specific settings
 LANGUAGE_CODE = 'en-us'
 
 # django will look within each of these paths for the <locale_code>/LC_MESSAGES directories
@@ -115,6 +117,17 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+CAPTCHA_CHALLENGE_FUNCT = "captcha.helpers.math_challenge"
+CAPTCHA_NOISE_FUNCTIONS = ('captcha.helpers.noise_dots',)
+# in minutes
+CAPTCHA_TIMEOUT = 15
+CAPTCHA_FONT_SIZE=30
+CAPTCHA_LETTER_ROTATION = (-10, 10)
+
+if DEBUG:
+    CAPTCHA_TEST_MODE = True
 
 
 # Static files (CSS, JavaScript, Images)
