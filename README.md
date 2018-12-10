@@ -1,12 +1,14 @@
-# sober_site
+# django-sober-deployment-project
 
 This repo serves as deployment helper for [django-sober][1].
 
-Django distinguishes between projects and apps. One project can include multiple apps and one app
-can be part of many projects. [django-sober][1] is an app. This repo contains a django-project,
-which is configured such that the app can be tested locally with little effort
+The [django web framework](https://www.djangoproject.com/) distinguishes between projects and apps. One project can include multiple apps and one app can be part of many projects. [django-sober][1] is an app. This repo contains a django-project, which is configured such that the app can be tested locally with little effort.
 
-[1]: https://to-be-announced
+[1]: https://https://github.com/cknoll/django-sober
+
+
+As `django-sober` this repo is still in early stage of development
+
 # Local deployment
 
 **Note: The following instructions are for experienced users which understand each command.
@@ -17,11 +19,11 @@ They are tested on Debian 8 and 9.**
     cd sober_deploy
 
     # download the django-app
-    git clone url:sober
+    git clone git@github.com:cknoll/django-sober.git
 
 
     # download the django-project
-    git clone url:sober_site
+    git clone git@github.com:cknoll/django-sober-site.git
 
     virtualenv soberenv
     source soberenv/bin/activate
