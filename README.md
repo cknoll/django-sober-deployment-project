@@ -4,7 +4,7 @@ This repo serves as deployment helper for [django-sober][1].
 
 The [django web framework](https://www.djangoproject.com/) distinguishes between projects and apps. One project can include multiple apps and one app can be part of many projects. [django-sober][1] is an app. This repo contains a django-project, which is configured such that the app can be tested locally with little effort.
 
-[1]: https://https://github.com/cknoll/django-sober
+[1]: https://github.com/cknoll/django-sober
 
 
 As `django-sober` this repo is still in early stage of development

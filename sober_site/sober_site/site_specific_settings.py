@@ -20,6 +20,17 @@ SECRET_KEY = '1234567890abcdefghijklmnopqrstuvwxyz1234567890abcd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# set this to "deployment_server" for deployment
+MACHINE_NAME = "local_dev_server"
+
+
+FEEDBACK_SENDER = "feedback-sender@your-sober-domain.org"
+
+# this is where the feedback form content is sent to
+# set this to the mail address of the admin or main moderator
+FEEDBACK_RECEIVER = "moderator@your-sober-domain.org"
+
+
 ALLOWED_HOSTS = ["127.0.0.1"]
 
 DATABASES = {

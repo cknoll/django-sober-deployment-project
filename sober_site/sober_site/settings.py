@@ -19,11 +19,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-
 
 # that file must be changed for non-local deployment and kept secret
-from .site_specific_settings import SECRET_KEY, DEBUG, ALLOWED_HOSTS, DATABASES
+from .site_specific_settings import SECRET_KEY, DEBUG, ALLOWED_HOSTS, DATABASES, MACHINE_NAME,\
+                                    FEEDBACK_RECEIVER, FEEDBACK_SENDER
 
 
 # Application definition
@@ -142,4 +141,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, "collected_static_files")
 STATIC_URL = '/static/'
 
 # such requests will be mapped to the directory above by the (appropriatly configured webserver)
-
