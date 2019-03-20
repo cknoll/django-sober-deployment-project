@@ -41,7 +41,7 @@ chgrp www-data db.sqlite3
 
 
 # install the sample data from the sober app
-python3 -c "import sober.utils as u; u.load_fixtures_to_db()"
+python3 -c "import sober.utils as u; u.load_fixtures_to_db(ask=False)"
 
 # ensure everything works
 python3 manage.py test sober

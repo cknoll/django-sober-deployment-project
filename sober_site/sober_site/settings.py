@@ -22,7 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # that file must be changed for non-local deployment and kept secret
 from .site_specific_settings import SECRET_KEY, DEBUG, ALLOWED_HOSTS, DATABASES, MACHINE_NAME,\
-                                    FEEDBACK_RECEIVER, FEEDBACK_SENDER
+                                    FEEDBACK_RECEIVER, FEEDBACK_SENDER,\
+                                    EMAIL_BACKEND, EMAIL_USE_TLS, EMAIL_HOST, EMAIL_PORT,\
+                                    EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
 
 
 # Application definition

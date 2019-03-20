@@ -34,13 +34,18 @@ FEEDBACK_RECEIVER = "moderator@your-sober-domain.org"
 
 EMAIL = Container()
 
-# EMAIL.BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL.BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL.USE_TLS = True
-EMAIL.HOST = 'localhost'
-EMAIL.PORT = 25
-EMAIL.HOST_USER = ''
-EMAIL.HOST_PASSWORD = ''
+
+# for testing purposes there are two options: Console-Backend or local dummy smtp-server:
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# python -m smtpd -n -c DebuggingServer localhost:1025
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
 
 ALLOWED_HOSTS = ["127.0.0.1"]
