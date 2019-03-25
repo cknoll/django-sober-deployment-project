@@ -4,6 +4,7 @@
 # scp  update_sober* $sober_server_ip4:/tmp
 
 
+
 ORIG_DIR=$(pwd)
 
 real_site_specific_settings=$(cat update_sober_site_specific_settings.py)
@@ -16,6 +17,16 @@ source soberenv/bin/activate
 rm -rf django-sober
 git clone --depth 1 git@localhost:django-sober
 
+if [ -d "django-sober-site" ]; then
+  # if the dir exists  make db backup before deleting the dir
+  cd django-sober-site/sober_site
+  python3 -c "import sober.utils as u; u.save_stripped_fixtures(backup=True)"
+  cd ../..
+fi
+
+rm -rf django-sober-site
+git clone --depth 1 git@localhost:django-sober-site
+
 
 cd django-sober
 # git checkout -f  || exit 1
@@ -27,6 +38,14 @@ git checkout -f  || exit 1
 git pull  -f || exit 1
 pip install -r requirements.txt
 
+# additional package which is used only to generate backups
+pip install demjson
+
+
+# this script assumes that the executing user is member of the group www-data
+
+chgrp www-data sober_site
+chmod 775 sober_site
 cd sober_site
 
 
@@ -36,8 +55,8 @@ echo "$real_site_specific_settings" > sober_site/site_specific_settings.py
 python3 manage.py makemigrations
 python3 manage.py migrate
 
-chmod 664 db.sqlite3
 chgrp www-data db.sqlite3
+chmod 664 db.sqlite3
 
 
 # install the sample data from the sober app
@@ -49,4 +68,6 @@ python3 manage.py test sober
 python3 manage.py collectstatic
 
 cd $ORIG_DIR
+
+sudo apache2ctl restart
 

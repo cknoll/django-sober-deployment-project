@@ -25,6 +25,9 @@ DEBUG = True
 # set this to "deployment_server" for deployment
 MACHINE_NAME = "local_dev_server"
 
+# path where db-backups are dumped to
+BACKUP_PATH = "/tmp/sober_backup"
+
 
 FEEDBACK_SENDER = "feedback-sender@your-sober-domain.org"
 

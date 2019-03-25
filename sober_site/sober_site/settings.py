@@ -24,8 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 from .site_specific_settings import SECRET_KEY, DEBUG, ALLOWED_HOSTS, DATABASES, MACHINE_NAME,\
                                     FEEDBACK_RECEIVER, FEEDBACK_SENDER,\
                                     EMAIL_BACKEND, EMAIL_USE_TLS, EMAIL_HOST, EMAIL_PORT,\
-                                    EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
-
+                                    EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, BACKUP_PATH
 
 # Application definition
 
